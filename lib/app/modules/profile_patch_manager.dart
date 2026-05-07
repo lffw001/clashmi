@@ -790,16 +790,18 @@ class ProfilePatchManager {
         return corePath;
       }
 
-      String value  ="";
-      if(res.rawResult is String){
-        value =  res.rawResult;
-      } else if(res.rawResult is Map){
+      String value = "";
+      if (res.rawResult is String) {
+        value = res.rawResult;
+      } else if (res.rawResult is Map) {
         value = YamlWriter(allowUnquotedStrings: true).write(res.rawResult);
-      } else if(res.rawResult is ffi.Pointer){
-        final data  = flutterJs.convertValue<Map<String, dynamic>>(res);
+      } else if (res.rawResult is ffi.Pointer) {
+        final data = flutterJs.convertValue<Map<String, dynamic>>(res);
         value = YamlWriter(allowUnquotedStrings: true).write(data);
       } else {
-        Log.w("evaluate ${patch.remark} rawResult type unsupport: ${res.rawResult.runtimeType}");
+        Log.w(
+          "evaluate ${patch.remark} rawResult type unsupport: ${res.rawResult.runtimeType}",
+        );
         return corePath;
       }
 
