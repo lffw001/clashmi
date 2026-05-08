@@ -160,9 +160,10 @@ public class ExtensionPlatformInterface: NSObject, LibclashPlatformInterfaceProt
             let proxyServer = NEProxyServer(address: options.getHTTPProxyServer(), port: Int(options.getHTTPProxyServerPort()))
             proxySettings.httpServer = proxyServer
             proxySettings.httpsServer = proxyServer
-            proxySettings.httpEnabled = true
-            proxySettings.httpsEnabled = true
-
+            if systemProxyEnabled {
+                proxySettings.httpEnabled = true
+                proxySettings.httpsEnabled = true
+            }
             var bypassDomains: [String] = []
             let bypassDomainIterator = options.getHTTPProxyBypassDomain()!
             while bypassDomainIterator.hasNext() {
