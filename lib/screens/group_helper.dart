@@ -1503,8 +1503,8 @@ class GroupHelper {
           ),
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
-              name: "include_all_networks",
-              tips: "includeAllNetworks:iOS 14.0+;macOS 10.15+",
+              name: "includeAllNetworks",
+              tips: "iOS 14.0+;macOS 10.15+",
               switchValue: extensions.Tun.includeAllNetworks,
               onSwitch: tun.OverWrite != true || tun.Enable != true
                   ? null
@@ -1515,8 +1515,8 @@ class GroupHelper {
           ),
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
-              name: "exclude_local_networks",
-              tips: "excludeLocalNetworks:iOS 14.2+;macOS 10.15+",
+              name: "excludeLocalNetworks",
+              tips: "iOS 14.2+;macOS 10.15+",
               switchValue: extensions.Tun.excludeLocalNetworks,
               onSwitch: tun.OverWrite != true || tun.Enable != true
                   ? null
@@ -1527,8 +1527,8 @@ class GroupHelper {
           ),
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
-              name: "exclude_cellular_services",
-              tips: "excludeCellularServices:iOS 16.4+;macOS 13.3+",
+              name: "excludeCellularServices",
+              tips: "iOS 16.4+;macOS 13.3+",
               switchValue: extensions.Tun.excludeCellularServices,
               onSwitch: tun.OverWrite != true || tun.Enable != true
                   ? null
@@ -1539,8 +1539,8 @@ class GroupHelper {
           ),
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
-              name: "exclude_apns",
-              tips: "excludeApns:iOS 16.4+;macOS 13.3+",
+              name: "excludeAPNs",
+              tips: "iOS 16.4+;macOS 13.3+",
               switchValue: extensions.Tun.excludeApns,
               onSwitch: tun.OverWrite != true || tun.Enable != true
                   ? null
@@ -1551,8 +1551,8 @@ class GroupHelper {
           ),
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
-              name: "exclude_device_communication",
-              tips: "excludeDeviceCommunication:iOS 17.4+;macOS 14.4+",
+              name: "excludeDeviceCommunication",
+              tips: "iOS 17.4+;macOS 14.4+",
               switchValue: extensions.Tun.excludeDeviceCommunication,
               onSwitch: tun.OverWrite != true || tun.Enable != true
                   ? null
@@ -1563,8 +1563,8 @@ class GroupHelper {
           ),
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
-              name: "enforce_routes",
-              tips: "enforceRoutes:iOS 14.2+;macOS 11.0+",
+              name: "enforceRoutes",
+              tips: "iOS 14.2+;macOS 11.0+",
               switchValue: extensions.Tun.enforceRoutes,
               onSwitch: tun.OverWrite != true || tun.Enable != true
                   ? null
