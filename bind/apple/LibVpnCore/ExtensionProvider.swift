@@ -29,6 +29,7 @@ class VpnServiceConfig: Codable {
     var exclude_apns = false 
     var exclude_device_communication = false
     var enforce_routes = false 
+    var auto_route_use_sub_ranges_by_default = false
     var core_path_patch: String = ""
     var core_path_patch_final: String = ""
 
@@ -48,6 +49,7 @@ class VpnServiceConfig: Codable {
         case exclude_apns 
         case exclude_device_communication
         case enforce_routes  
+        case auto_route_use_sub_ranges_by_default
         case core_path_patch
         case core_path_patch_final
     }
@@ -65,12 +67,13 @@ class VpnServiceConfig: Codable {
         id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
         version = try container.decodeIfPresent(String.self, forKey: .version) ?? ""
         name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
-        include_all_networks   = try container.decodeIfPresent(Bool.self, forKey: .include_all_networks) ?? false
-        exclude_local_networks  = try container.decodeIfPresent(Bool.self, forKey: .exclude_local_networks) ?? false
-        exclude_cellular_services  = try container.decodeIfPresent(Bool.self, forKey: .exclude_cellular_services) ?? false
+        include_all_networks = try container.decodeIfPresent(Bool.self, forKey: .include_all_networks) ?? false
+        exclude_local_networks = try container.decodeIfPresent(Bool.self, forKey: .exclude_local_networks) ?? false
+        exclude_cellular_services = try container.decodeIfPresent(Bool.self, forKey: .exclude_cellular_services) ?? false
         exclude_apns  = try container.decodeIfPresent(Bool.self, forKey: .exclude_apns) ?? false
-        exclude_device_communication  = try container.decodeIfPresent(Bool.self, forKey: .exclude_device_communication) ?? false
-        enforce_routes   = try container.decodeIfPresent(Bool.self, forKey: .enforce_routes) ?? false
+        exclude_device_communication = try container.decodeIfPresent(Bool.self, forKey: .exclude_device_communication) ?? false
+        enforce_routes  = try container.decodeIfPresent(Bool.self, forKey: .enforce_routes) ?? false
+        auto_route_use_sub_ranges_by_default = try container.decodeIfPresent(Bool.self, forKey: .auto_route_use_sub_ranges_by_default) ?? false
         core_path_patch = try container.decodeIfPresent(String.self, forKey: .core_path_patch) ?? ""
         core_path_patch_final = try container.decodeIfPresent(String.self, forKey: .core_path_patch_final) ?? ""
     }
