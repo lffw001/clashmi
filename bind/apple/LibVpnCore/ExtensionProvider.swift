@@ -13,7 +13,7 @@ import WidgetKit
 // import AppKit
 // #endif
 
-class VpnServiceConfig: Codable {
+public class VpnServiceConfig: Codable {
     var base_dir: String = ""
     var work_dir: String = ""
     var cache_dir: String = ""
@@ -56,7 +56,7 @@ class VpnServiceConfig: Codable {
 
     init() {}
 
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         base_dir = try container.decodeIfPresent(String.self, forKey: .base_dir) ?? ""
         work_dir = try container.decodeIfPresent(String.self, forKey: .work_dir) ?? ""
