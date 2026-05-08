@@ -1501,6 +1501,72 @@ class GroupHelper {
                     },
             ),
           ),
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: "include_all_networks",
+              switchValue: extensions.Tun.includeAllNetworks,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.includeAllNetworks = value;
+                    },
+            ),
+          ),
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: "exclude_local_networks",
+              switchValue: extensions.Tun.excludeLocalNetworks,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.excludeLocalNetworks = value;
+                    },
+            ),
+          ),
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: "exclude_cellular_services",
+              switchValue: extensions.Tun.excludeCellularServices,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.excludeCellularServices = value;
+                    },
+            ),
+          ),
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: "exclude_apns",
+              switchValue: extensions.Tun.excludeApns,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.excludeApns = value;
+                    },
+            ),
+          ),
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: "exclude_device_communication",
+              switchValue: extensions.Tun.excludeDeviceCommunication,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.excludeDeviceCommunication = value;
+                    },
+            ),
+          ),
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: "enforce_routes",
+              switchValue: extensions.Tun.enforceRoutes,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.enforceRoutes = value;
+                    },
+            ),
+          ),
         ],
         if (PlatformUtils.isPC()) ...[
           GroupItemOptions(

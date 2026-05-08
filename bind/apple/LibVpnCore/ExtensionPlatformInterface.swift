@@ -29,7 +29,7 @@ public class ExtensionPlatformInterface: NSObject, LibclashPlatformInterfaceProt
         }
 
         let autoRouteUseSubRangesByDefault = options.getAutoRouteUseSubRangesByDefault()
-        // let excludeAPNs = excludeAPNsRoute
+        let excludeAPNs = tunnel.config.exclude_apns
 
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "127.0.0.1")
         if options.getAutoRoute() {
@@ -82,14 +82,14 @@ public class ExtensionPlatformInterface: NSObject, LibclashPlatformInterfaceProt
                  }) {
                      ipv4ExcludeRoutes.append(NEIPv4Route(destinationAddress: "0.0.0.0", subnetMask: "255.255.255.254"))
                  }
-             }
+             }*/
              if excludeAPNs, !ipv4Routes.isEmpty {
                  if !ipv4ExcludeRoutes.contains(where: { it in
                      it.destinationAddress == "17.0.0.0" && it.destinationSubnetMask == "255.0.0.0"
                  }) {
                      ipv4ExcludeRoutes.append(NEIPv4Route(destinationAddress: "17.0.0.0", subnetMask: "255.0.0.0"))
                  }
-             } */
+             } 
 
             ipv4Settings.includedRoutes = ipv4Routes
             ipv4Settings.excludedRoutes = ipv4ExcludeRoutes
@@ -166,13 +166,13 @@ public class ExtensionPlatformInterface: NSObject, LibclashPlatformInterfaceProt
             while bypassDomainIterator.hasNext() {
                 bypassDomains.append(bypassDomainIterator.next())
             }
-            /* if excludeAPNs {
-                 if !bypassDomains.contains(where: { it in
-                     it == "push.apple.com"
-                 }) {
-                     bypassDomains.append("push.apple.com")
-                 }
-             } */
+            if excludeAPNs {
+                if !bypassDomains.contains(where: { it in
+                    it == "push.apple.com"
+                }) {
+                    bypassDomains.append("push.apple.com")
+                }
+            } 
             if !bypassDomains.isEmpty {
                 proxySettings.exceptionList = bypassDomains
             }
