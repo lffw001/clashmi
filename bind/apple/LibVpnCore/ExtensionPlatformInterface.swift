@@ -28,8 +28,8 @@ public class ExtensionPlatformInterface: NSObject, LibclashPlatformInterfaceProt
             throw NSError(domain: "nil return pointer", code: 0)
         }
 
-        let autoRouteUseSubRangesByDefault = tunnel.config.auto_route_use_sub_ranges_by_default
-        let excludeAPNs = tunnel.config.exclude_apns
+        let autoRouteUseSubRangesByDefault = tunnel.config?.auto_route_use_sub_ranges_by_default ?? false
+        let excludeAPNs = tunnel.config?.exclude_apns ?? false
 
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "127.0.0.1")
         if options.getAutoRoute() {
